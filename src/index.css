@@ -1,0 +1,28 @@
+.MatchdayBox {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 85%;
+    padding: 30px;
+}
+
+.MatchdayNum {
+    text-align: left;
+    text-indent: 20px;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.Matches {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: white;
+    color: black; 
+    margin: 20px auto;
+    padding: 40px;
+    width: 300px;
+    border-radius: 15px;    
+}
