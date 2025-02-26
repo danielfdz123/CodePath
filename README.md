@@ -1,16 +1,16 @@
-# Web Development Project 1 - *Name of App Here*
+# Web Development Project 1 - _FIFA 2026 World Cup Qualifiers Schedule_
 
-Submitted by: **Your Name Here**
+Submitted by: Daniel Fernandez
 
-This web app: **insert description**
+This web app: FOR THE SOCCER COMMUNITY, this web app will show the upcoming matchdays schedules for the 2026 FIFA World Cup Qualifiers, only for those who are apart of the COMNEBOL confederation (South American countries). Each card will separated in their own section depening on what matchday they fall under, and will display infomration of each match which includes their date, and time.
 
-Time spent: **X** hours spent in total
+Time spent: **2** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **There is a unique theme for events or resources relevant to a specific community**
+- [x] **There is a unique theme for events or resources relevant to a specific community**
 - [ ] **At least 10 unique resources or events are displayed in a responsive card format**
 
 The following **optional** features are implemented:
@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+- [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
@@ -29,7 +29,9 @@ Here's a walkthrough of implemented required features:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+
+GIF created with ...
+
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
