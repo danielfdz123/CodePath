@@ -2,7 +2,6 @@
     text-align: center;
     margin: 20px auto;
     max-width: 85%;
-    padding: 30px;
 }
 
 .MatchdayNum {
@@ -10,6 +9,7 @@
     text-indent: 20px;
     text-decoration: underline;
     font-style: italic;
+    padding-top: 70px;
 }
 
 .Matches {
@@ -18,11 +18,15 @@
     flex-wrap: wrap;
 }
 
-.event-card {
+.eventCard {
     background-color: white;
     color: black; 
     margin: 20px auto;
     padding: 40px;
     width: 300px;
     border-radius: 15px;    
+}
+
+.eventInfo {
+    font-size: 140%;
 }
