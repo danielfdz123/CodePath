@@ -26,15 +26,15 @@ const Board = () => {
                     <Event team1 = "Paraguay" team2 = "Uruguay" date = "June 4, 2025" time = "<TBD>" />
                     <Event team1 = "Ecuador" team2 = "Brazil" date = "June 4, 2025" time = "<TBD>" />
                     <Event team1 = "Venezuela" team2 ="Bolivia" date = "June 4, 2025" time = "<TBD>" />
-                    <Event team1 = "Chilie" team2= "Argentina" date = "June 4, 2025" time = "<TBD>" />
+                    <Event team1 = "Chile" team2= "Argentina" date = "June 4, 2025" time = "<TBD>" />
                 </div>
             <h1 className = "MatchdayNum"> Matchday 16 of 18: </h1>
                 <div className = "Matches">
                     <Event team1 = "Brazil" team2 = "Paraguay" date = "June 9, 2025" time = "<TBD>" />
                     <Event team1 = "Uruguay" team2 = "Venezuela" date = "June 9, 2025" time = "<TBD>" />
-                    <Event team1 = "Peru" team2 = "Ecuuador" date = "June 9, 2025" time = "<TBD>" />
+                    <Event team1 = "Peru" team2 = "Ecuador" date = "June 9, 2025" time = "<TBD>" />
                     <Event team1 = "Argentina" team2 ="Colombia" date = "June 9, 2025" time = "<TBD>" />
-                    <Event team1 = "Bolivia" team2= "Chilie" date = "June 9, 2025" time = "<TBD>" />
+                    <Event team1 = "Bolivia" team2= "Chile" date = "June 9, 2025" time = "<TBD>" />
                 </div>
             <h1 className = "MatchdayNum"> Matchday 17 of 18: </h1>
                 <div className = "Matches">
@@ -42,12 +42,12 @@ const Board = () => {
                     <Event team1 = "Argentina" team2 = "Venezuela" date = "September 9, 2025" time = "<TBD>" />
                     <Event team1 = "Uruguay" team2 = "Peru" date = "September 9, 2025" time = "<TBD>" />
                     <Event team1 = "Colombia" team2 ="Bolivia" date = "September 9, 2025" time = "<TBD>" />
-                    <Event team1 = "Brazil" team2= "Chilie" date = "September 9, 2025" time = "<TBD>" />
+                    <Event team1 = "Brazil" team2= "Chile" date = "September 9, 2025" time = "<TBD>" />
                 </div>
             <h1 className = "MatchdayNum"> Matchday 18 of 18: </h1>
                 <div className = "Matches">
                     <Event team1 = "Ecuador" team2 = "Argentina" date = "September 14, 2025" time = "<TBD>" />
-                    <Event team1 = "Chilie" team2 = "Uruguay" date = "September 14, 2025" time = "<TBD>" />
+                    <Event team1 = "Chile" team2 = "Uruguay" date = "September 14, 2025" time = "<TBD>" />
                     <Event team1 = "Bolivia" team2 = "Brazil" date = "September 14, 2025" time = "<TBD>" />
                     <Event team1 = "Venezuela" team2 ="Colombia" date = "September 14, 2025" time = "<TBD>" />
                     <Event team1 = "Peru" team2= "Paraguay" date = "September 14, 2025" time = "<TBD>" />
