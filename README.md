@@ -4,7 +4,7 @@ Submitted by: Daniel Fernandez
 
 This web app: FOR THE SOCCER COMMUNITY, this web app will show the upcoming matchdays schedules for the 2026 FIFA World Cup Qualifiers, only for those who are apart of the CONMEBOL confederation (South American countries). Each card will separated in their own section depening on what matchday they fall under, and will display infomration of each match which includes their date, and time.
 
-Time spent: **2** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
