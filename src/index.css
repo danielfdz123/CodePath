@@ -22,8 +22,8 @@
     background-color: white;
     color: black; 
     margin: 20px auto;
-    padding: 40px;
-    width: 300px;
+    padding: 20px;
+    width: 350px;
     border-radius: 15px;    
 }
 
@@ -41,7 +41,16 @@
     margin-left: 20px;
 }
 
-.moreInfo {
+.location {
+    font-size: 17px;
+    padding-bottom: 100px;
+}
+
+.info{
+    line-height: 30px;
+}
+
+.link {
     font-size: 130%;
     width: 45%;
     height: 50px;
@@ -51,6 +60,6 @@
     background-color:rgb(34, 209, 253);
 }
 
-.moreInfo:hover {
+.link:hover {
     background-color:rgb(103, 156, 255);
 }
