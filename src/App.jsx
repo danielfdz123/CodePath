@@ -18,8 +18,12 @@ function shuffle(array) {
 }
 
 const App = () => {
+// next button
   const [card, CardIndex] = useState(0);
+// shuffling cards
   const [prompts, ShuffledPrompts] = useState([]);
+// reseting cards to the question side when moving to the next set of cards
+  const [reset, resetFlip] = useState(false);
 
   useEffect(() => {
     const shuffled = shuffle([...Prompts]);
@@ -35,6 +39,8 @@ const App = () => {
     {
       CardIndex(0);
     }
+    // resets the flip status of the card to always show the front side when button is pressed (question side)
+    resetFlip(!reset);
   };
 
   return (
@@ -44,7 +50,7 @@ const App = () => {
         <h3> How good is your soccer knowledge? Let's see if you know some iconic footballers! </h3>
         <h4> There are {prompts.length} cards. </h4>
         <div className = "flashcards">
-          {prompts.length > 0 && (<FlashCards prompt ={prompts[card]} />)}
+          {prompts.length > 0 && (<FlashCards key = {reset} prompt ={prompts[card]}/>)}
         </div>
         <button className = "next" onClick={nextCard}>Next →</button>
       </div>
