@@ -1,20 +1,20 @@
 # Web Development Project 2 - *Name of App Here*
 
-Submitted by: **Your Name Here**
+Submitted by: **Daniel Fernandez**
 
-This web app: **insert description**
+This web app: **Guess that Soccer Player!**
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [ ] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [ ] **A list of card pairs is created**
-- [ ] **Clicking on the card shows the corresponding component of the information pair**
-- [ ] **Clicking the next button displays a random new card**
+- [X] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
+- [X] **A single card at a time is displayed, only showing one of the components of the information pair**
+- [X] **A list of card pairs is created**
+- [X] **Clicking on the card shows the corresponding component of the information pair**
+- [X] **Clicking the next button displays a random new card**
 
 The following **optional** features are implemented:
 
