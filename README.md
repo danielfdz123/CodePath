@@ -4,7 +4,7 @@ Submitted by: **Daniel Fernandez**
 
 This web app: **Guess that Soccer Player!**
 
-Time spent: **3** hours spent in total
+Time spent: **5** hours spent in total
 
 ## Required Features
 
@@ -18,9 +18,9 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Cards contains images in addition to or in place of text
-- [ ] Cards have different visual styles such as color based on their category
-  - [ ] *visual style implemented*
+- [X] Cards contains images in addition to or in place of text
+- [X] Cards have different visual styles such as color based on their category
+  - [X] *visual style implemented*
 
 The following **additional** features are implemented:
 
@@ -42,6 +42,8 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+- Applying the random feature. Had to experiment with different codes from different online sources to fully undertsand how to implement it into this project. 
 
 ## License
 
