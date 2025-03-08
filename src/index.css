@@ -26,23 +26,58 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
 }
 
-.flip-card-front {
-  background-color: #bbb;
-  border-radius: 20px;
+.flip-card-front.green {
+  background-color: #28a746b6; 
   color: black;
+  border-radius: 20px;
+}
+
+.flip-card-front.yellow {
+  background-color: #ffc1078f;
+  color: black;
+  border-radius: 20px;
+}
+
+.flip-card-front.red {
+  background-color: #dc3546ab;
+  color: black;
+  border-radius: 20px;
 }
 
 .flip-card-front ul {
   text-align: left;
 }
 
-.flip-card-back {
-  background-color: #bbb;
+.flip-card-back.green {
+  background-color: #28a746b6; 
   color: black;
-  border-radius: 20px;
   transform: rotateY(180deg);
+  border-radius: 20px;
+}
+
+.flip-card-back.yellow {
+  background-color: #ffc1078f;
+  color: black;
+  transform: rotateY(180deg); 
+  border-radius: 20px;
+}
+
+.flip-card-back.red {
+  background-color: #dc3546ab;
+  color: black;
+  transform: rotateY(180deg);
+  border-radius: 20px;
+}
+
+.player {
+  width: 120px;
+  height: 200px;
+  border-radius: 10%; 
+  object-fit: cover; 
+  border: 3px solid black;
+  margin-right: 20px;
+  margin-left: 20px;
 }
