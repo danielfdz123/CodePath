@@ -1,4 +1,4 @@
-# Web Development Project 2 - Spccer Player Flashcards!
+# Web Development Project 2 - Soccer Player Flashcards!
 
 Submitted by: **Daniel Fernandez**
 
