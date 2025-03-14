@@ -26,10 +26,16 @@ body {
   padding-bottom: 5em;
 }
 
-.next {
+.next, .prev, .shuffle, .submit {
   background-color: black;
   color: white;
   margin: 5em auto 0;
   border-radius: 10px;
   padding: 10px;
+  cursor: pointer;
+}
+
+.disable {
+  color: rgb(141, 141, 141);
+  /* cursor: pointer; */
 }

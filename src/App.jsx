@@ -18,17 +18,12 @@ function shuffle(array) {
 }
 
 const App = () => {
-// next button
+// next & prev button
   const [card, CardIndex] = useState(0);
 // shuffling cards
-  const [prompts, ShuffledPrompts] = useState([]);
+  const [prompts, ShufflePrompts] = useState(Prompts);
 // reseting cards to the question side when moving to the next set of cards
   const [reset, resetFlip] = useState(false);
-
-  useEffect(() => {
-    const shuffled = shuffle([...Prompts]);
-    ShuffledPrompts(shuffled);
-  }, []);
 
   const nextCard = () => {
     if (card < prompts.length - 1) {
@@ -43,6 +38,27 @@ const App = () => {
     resetFlip(!reset);
   };
 
+  const prevCard = () => {
+    if (card > 0) {
+      CardIndex(card - 1);
+    } 
+    // cycles back to the last card if on the first one
+    else 
+    {
+      CardIndex(card - 1);
+    }
+    // resets the flip status of the card to always show the front side when button is pressed (question side)
+    resetFlip(!reset);
+  };
+
+  const shuffleCards = () => {
+    const shuffled = shuffle([...prompts]);
+    ShufflePrompts(shuffled);
+  };
+
+  const card1 = card === 0;                       // Sets varibled 'card1' to the 1st card
+  const lastCard = card === prompts.length - 1;   // Sets variable 'lastCard' to the Last Card
+
   return (
     <div className = "app">
       <div className = "header">
@@ -52,7 +68,17 @@ const App = () => {
         <div className = "flashcards">
           {prompts.length > 0 && (<FlashCards key = {reset} prompt ={prompts[card]}/>)}
         </div>
-        <button className = "next" onClick={nextCard}>Next →</button>
+        <div className = "input">
+          <h4> Guess the answer here: </h4>
+          <button className = "submit"> Submit </button>
+        </div>
+        <button className = {`prev ${card1 ? 'disable' : ''}`} onClick={prevCard} disabled = {card1}>
+          Previous ←
+        </button>
+        <button className = {`next ${lastCard ? 'disable' : ''}`} onClick={nextCard} disabled={lastCard}>
+          Next →
+        </button>
+        <button className = "shuffle" onClick={shuffleCards}>Shuffle Deck</button>
       </div>
     </div>
   );
