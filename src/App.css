@@ -6,7 +6,7 @@
 
 body {
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 5px;
   background-image: url('../wallpaper.jpg'); 
   background-position: bottom;
   background-size: cover;
@@ -17,16 +17,16 @@ body {
 
 .header {
   width: 50%;
-  margin: 10em auto 0; 
+  margin: 6em auto 0; 
   text-align: center;
   position: relative;
   outline: 5px solid black;
   color: rgb(0, 0, 0);
   background-color: rgba(255, 255, 255, 0.514);
-  padding-bottom: 5em;
+  padding-bottom: 2em;
 }
 
-.next, .prev, .shuffle, .submit {
+.next, .prev, .shuffle {
   background-color: black;
   color: white;
   margin: 5em auto 0;
@@ -37,5 +37,22 @@ body {
 
 .disable {
   color: rgb(141, 141, 141);
-  /* cursor: pointer; */
+}
+
+.input {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+.submit {
+  font-size: 12px;
+  gap: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  padding-bottom: 3px ;
+  padding-top: 3px;
 }

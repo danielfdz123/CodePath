@@ -29,8 +29,8 @@ const FlashCards = ({ prompt }) => {
 
                 {/* Back Side of Card */}
                 <div className = {`flip-card-back ${difficultyClasses[prompt.difficulty]}`}>
-                    <h3>{prompt.a}</h3>
-                    <img className = "player" src={`/${prompt.img}.webp`} alt={prompt.a} />
+                    <h3>{prompt.fullName}</h3>
+                    <img className = "player" src={`/${prompt.img}.webp`} alt={prompt.fullName} />
                 </div>
             </div>
         </div>
