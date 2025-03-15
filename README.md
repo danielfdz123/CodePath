@@ -2,7 +2,8 @@
 
 Submitted by: *Daniel Fernandez*
 
-This web app: **Guess that Soccer Player!** - Put your soccer knowlegde to the test! Here you are given 3 hints, and your goal is to get as many of the 10 soccer players right by typing your guesses in the box provided. With a functioning streak counter, the user can also go back and do their best to beat their own streak.
+This web app: **Guess that Soccer Player!** 
+- Put your soccer knowlegde to the test! Here you are given 3 hints, and your goal is to get as many of the 10 soccer players right by typing your guesses in the box provided. With a functioning streak counter, the user can also go back and do their best to beat their own streak.
 
 Time spent: **5.5** hours spent in total
 
