@@ -26,7 +26,7 @@ body {
   padding-bottom: 2em;
 }
 
-.next, .prev, .shuffle {
+.next, .prev, .shuffle, .startOver {
   background-color: black;
   color: white;
   margin: 5em auto 0;
@@ -35,7 +35,7 @@ body {
   cursor: pointer;
 }
 
-.disable {
+.disable, button.submit.disable {
   color: rgb(141, 141, 141);
 }
 
@@ -43,6 +43,21 @@ body {
   display: flex;
   justify-content: center; 
   align-items: center;     
+}
+
+.correct {
+  border-color: green;
+  background-color: #71ff71;
+}
+
+.incorrect {
+  border-color: red;
+  background-color: #f16868; 
+}
+
+.default {
+  border-color: white;
+  background-color: white;
 }
 
 .submit {

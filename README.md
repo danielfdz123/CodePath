@@ -4,7 +4,7 @@ Submitted by: *Daniel Fernandez*
 
 This web app: **Guess that Soccer Player!** - Put your soccer knowlegde to the test! Here you are given 3 hints, and your goal is to get as many of the 10 soccer players right by typing your guesses in the box provided. With a functioning streak counter, the user can also go back and do their best to beat their own streak.
 
-Time spent: **4** hours spent in total
+Time spent: **5.5** hours spent in total
 
 ## Required Features
 
@@ -24,7 +24,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you added to improve the site's functionality!
+- [X] A 'Start Over' Button is displayed to make it easier to reset the deck when we reach the end of the deck, reseting everything.
+- [X] When correct, the card flips to back side to show the answer to the prompt.
+- [X] Added some anti-cheating features to prevent users from getting a streak of 15 or something insane within the current set of 10 cards.
 
 ## Video Walkthrough
 

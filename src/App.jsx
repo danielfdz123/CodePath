@@ -25,6 +25,7 @@ const App = () => {
   const [answer, checkAns] = useState();                  // correct answer of the proompt
   const [streak, streakCount] = useState(0);              // manages streak of the user
   const [record, recordCount] = useState(0);              // manages the uses streak record
+  const [disabled, disableButton] = useState(false);      // is in charge of disabling the'submit' button when the answer is correct
 
   const nextCard = () => {
     if (card < prompts.length - 1) {
@@ -36,9 +37,11 @@ const App = () => {
       CardIndex(0);
     }
     // resets the flip status of the card to always show the front side when button is pressed (question side)
-    resetFlip(!reset);
-    // resets input box to BLANK
+    resetFlip(false);
+    // resets input box to BLANK & removes the green/red color & enables submit button to work again
     guessPrompt('');
+    checkAns('');
+    disableButton(false);
   };
 
   const prevCard = () => {
@@ -51,27 +54,33 @@ const App = () => {
       CardIndex(card - 1);
     }
     // resets the flip status of the card to always show the front side when button is pressed (question side)
-    resetFlip(!reset);
-    // resets input box to BLANK
-    guessPrompt('');        
+    resetFlip(false);
+    // resets input box to BLANK, removes input box color, resets streak, and enables submit button to work again
+    guessPrompt('');    
+    checkAns('');
+    streakCount(0);
+    disableButton(false);
   };
 
   const shuffleCards = () => {
+    resetFlip(false);
     const shuffled = shuffle([...prompts]);
     ShufflePrompts(shuffled);
+    streakCount(0);
   };
 
   const guessButton = () => {
     // using the 'some' function, it allows there to be multiple answers accepted for each question via the JSON
     if (prompts[card].a.some(ans => ans.toLowerCase() === guess.toLowerCase())) 
-    {
+    {      
       checkAns('correct');
       streakCount(streak + 1);
       if(streak + 1 > record)
       {
         recordCount(streak + 1);
       }
-      flipCard();
+      resetFlip(true);
+      disableButton(true);
     } 
     else 
     {
@@ -82,8 +91,28 @@ const App = () => {
     guessPrompt('');
   };
   
+// LITERALLY RESETS EVERYTHING
+  const startOver = () => {
+    CardIndex(0);
+    streakCount(0);
+    guessPrompt('');
+    disableButton(false);
+    checkAns('');
+  }
+
   const firstCard = card === 0;                   // Sets varibled 'firstCard' to the 1st card
   const lastCard = card === prompts.length - 1;   // Sets variable 'lastCard' to the Last Card
+
+  // PROMPTS FOR CSS, ALLOWING US TO SEE IF THE ANSWER IS RIGHT/WRONG
+  let boxColor = '';
+  if (answer === 'correct') 
+  {
+    boxColor = 'correct';
+  } 
+  else if (answer === 'incorrect')
+  {
+    boxColor = 'incorrect';
+  }
 
   return (
     <div className = "app">
@@ -93,18 +122,19 @@ const App = () => {
         <h4> There are {prompts.length} cards. </h4>
         <h5> Current Streak: {streak}; Longest Streak: {record} </h5>
         <div className = "flashcards">
-          {prompts.length > 0 && (<FlashCards key = {reset} prompt ={prompts[card]}/>)}
+          {prompts.length > 0 && (<FlashCards key={reset} prompt={prompts[card]} reset={reset} setFlip = {resetFlip}/>)}
         </div>
-       
         <div className="input">
- <h4>Guess the answer here: </h4>
-
-        <input
+          <h4> Guess the answer here: </h4>
+          <input
+            className={boxColor}
             type="text"
             value={guess}
             onChange={(e) => guessPrompt(e.target.value)}
-        />
-          <button className= "submit" onClick={guessButton}>Submit</button>
+          />
+          <button className= {`submit ${disabled ? 'disable' : ''}`} onClick={guessButton} disabled = {disabled}>
+            Submit
+          </button>
         </div>
         <button className = {`prev ${firstCard ? 'disable' : ''}`} onClick={prevCard} disabled = {firstCard}>
           ← Previous 
@@ -113,6 +143,7 @@ const App = () => {
           Next →
         </button>
         <button className = "shuffle" onClick={shuffleCards}>Shuffle Deck</button>
+        <button className = "startOver" onClick={startOver}>Start Over</button>
       </div>
     </div>
   );

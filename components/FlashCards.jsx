@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const FlashCards = ({ prompt }) => {
+const FlashCards = ({ prompt, reset }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const flipCard = () => {
         setIsFlipped(!isFlipped); 
     };
+
+    useEffect(() => {
+        setIsFlipped(reset);
+    }, [reset]);
 
     const difficultyClasses = {
         easy: "green",
