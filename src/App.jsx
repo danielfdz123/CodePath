@@ -1,33 +1,16 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css'
+import WeatherInfo from '../Components/WeatherInfo';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div className = "container">
-        <div className = "logoContainer">
-          <img src = "logo.webp" className = "logoImg"/>
-        </div>
-        <div className = "navBarContainer">
-          <div className = "navBarContent">
-              <h1> navBar</h1>
-          </div>
-        </div>
-        <div className = "quickInfo">
-          <div className = "infoBox"> Box 1 </div>
-          <div className = "infoBox"> Box 2 </div>
-          <div className = "infoBox"> Box 3 </div>
-        </div>
-        <div className = "contentDiv">
-          <div className = "content">
-            <h1> Hi </h1>
-          </div>
-        </div>
+    <div className="container">
+      <div className="logoContainer">
+        <img src="logo.webp" className="logoImg" alt="logo" />
       </div>
-    </>
-  )
-}
+      <WeatherInfo/>
+    </div>
+  );
+};
 
-export default App
+export default App;

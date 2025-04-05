@@ -6,7 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
-  background-image: url('../public/wallpaper.jpg');
+  background-image: url('/wallpaper.jpg');
   background-size: cover;
 
   font-synthesis: none;
@@ -32,6 +32,7 @@ a:hover {
 .logoContainer {
   text-align: center;
   width: 300px;
+  height: 180px;
   position: absolute;
   top: 40px;
   padding-top: 10px;
@@ -40,44 +41,19 @@ a:hover {
 }
 
 .logoImg {
-  height: 50%;
-  width: 50%;
-}
-
-.navBarContainer {
-  top: 40px;
-  height: 606px;
-  width: 200px;
-  position: absolute;
-  top: 216px;
-  left: 40px;
-
-  padding: 25px 50px;
-}
-
-.navBarContent {
-  flex: 1;
-  height: 95%;
-  background-color: rgba(255, 255, 255, 0.473);
-  color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  border: 1px solid white;
+  height: 100%;
+  width: 60%;
 }
 
 .quickInfo {
   text-align: center;
-  width: 1440px;
-  height: 270px;
+  width: 1240px;
+  height: 180px;
   position: absolute;
-  top: 40px;
-  padding: 25px 50px;
+  padding: 10px 150px;
   left: 340px;
   display: flex;
-  gap: 50px;
+  gap: 100px;
 }
 
 .infoBox {
@@ -85,35 +61,90 @@ a:hover {
   height: 95%;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
-
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-
   border: 1px solid white;
+}
+
+.headline {
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 0px;
+}
+
+.extras {
+  font-size: large;
+  margin: 0;
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: 0; 
 }
 
 .contentDiv {
-  top: 40px;
-  height: 462px;
-  width: 1440px;
-  position: absolute;
-  top: 360px;
-  left: 340px;  
-  padding: 25px 50px;
+    top: 40px;
+    height: 570px;
+    width: 1740px;
+    position: absolute;
+    top: 240px;
+    left: 40px;
+    padding: 25px 50px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
 
-}
+  .content {
+    flex: 1;
+    height: 95%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 12px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .title {
+    margin: 0;
+  }
 
-.content {
-  flex: 1;
-  height: 95%;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  .location, .filter {
+    margin: 5px;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  border: 1px solid white;
-}
+  .forecastContainer {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .weatherHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .weatherRow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .weatherData {
+    padding: 5px;
+    text-align: center;
+  }
