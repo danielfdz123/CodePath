@@ -17,6 +17,8 @@ function WeatherInfo() {
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
   const navigate = useNavigate();
+  const [modalContent, setModalContent] = useState(null);
+
   const apiKey = import.meta.env.VITE_APP_ACCESS_KEY;
 
   useEffect(() => {
@@ -120,6 +122,8 @@ function WeatherInfo() {
               </div>
           </div>
         </div>
+
+        {/* STUFF OUTSIDE OF THE CONSTANT NAV BAR; EVERYTHING BELOW HERE IS NEW STUFF */}
         <div className="contentDiv">
         <div className="content">
           <h2 className="title">🌦️ Weather Visuals for {city}</h2>
@@ -135,27 +139,55 @@ function WeatherInfo() {
               />
             </div>
             <div className = "chartsColumn">
-              <div className = "chartRow">
-                <h4> 🌧️ Accumulation (mm) </h4>
-                <div className = "chartBox">
-                  <Line
-                    data={{
-                    labels: forecast.map(day => day.valid_date),
-                    datasets: [{
-                      label: 'Rain (mm)',
+              <div className = "chartRow" onClick={() => setModalContent(
+                <Line 
+                  data={{
+                  labels: forecast.map(day => day.valid_date),
+                  datasets: [{
+                    label: 'Rain (mm)',
                       data: forecast.map(day => day.precip),
                       borderColor: 'skyblue',
                       backgroundColor: 'rgba(135,206,250,0.2)',
                       tension: 0.4,
-                      fill: true,
+                      fill: true
                     }]
-                  }}
-                  options={{ responsive: true, plugins: { legend: { display: false } } }}
+                  }} />
+                )
+              }>
+                <h4> 🌧️ Accumulation (mm) </h4>
+                <div className = "chartBox">
+                  <Line
+                    data={{
+                      labels: forecast.map(day => day.valid_date),
+                      datasets: [{
+                        label: 'Rain (mm)',
+                        data: forecast.map(day => day.precip),
+                        borderColor: 'skyblue',
+                        backgroundColor: 'rgba(135,206,250,0.2)',
+                        tension: 0.4,
+                        fill: true,
+                      }]
+                    }}
+                    options={{ responsive: true, plugins: { legend: { display: false } } }}
                   />
                 </div>
               </div>
 
-              <div className="chartRow">
+              <div className = "chartRow" onClick={() =>
+                setModalContent(
+                  <Line data={{
+                  labels: forecast.map(day => day.valid_date),
+                    datasets: [{
+                      label: 'Temp (°F)',
+                      data: forecast.map(day => Math.round(day.temp * 9 / 5 + 32)),
+                      borderColor: 'tomato',
+                      backgroundColor: 'rgba(255, 99, 71, 0.2)',
+                      tension: 0.4,
+                      fill: true
+                    }]
+                  }} />
+                )
+              }>
                 <h3>🌡️ Temperature (°F) </h3>
                 <div className="chartBox">
                   <Line
@@ -178,6 +210,14 @@ function WeatherInfo() {
           </div>
         </div>
       </div>
+      {modalContent && (
+        <div className = "modal" onClick={() => setModalContent(null)}>
+          <div className = "detailedCharts" onClick={(e) => e.stopPropagation()}>
+            <button className = "closeModal" onClick={() => setModalContent(null)}>✖</button>
+            {modalContent}
+          </div>
+        </div>
+      )}
     </>
   );
 }
