@@ -1,153 +1,180 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Line } from 'react-chartjs-2';
+import '../src/index.css';
+
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
 function WeatherInfo() {
-  const [city, setCity] = useState('New York');
+  const location = useLocation();
+  const [city, setCity] = useState(() => {
+    return location.state?.city || localStorage.getItem("lastCity") || "New York";
+  });
+  const [search, setSearch] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [filterCategory, setFilterCategory] = useState('No Filter');
-  const [filteredForecast, setFilteredForecast] = useState([]);
-
+  const [lat, setLat] = useState(null);
+  const [lon, setLon] = useState(null);
+  const navigate = useNavigate();
   const apiKey = import.meta.env.VITE_APP_ACCESS_KEY;
 
-  const cityList = [
-    'New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia',
-    'San Antonio', 'San Diego', 'Dallas', 'Austin'
-  ];
-
-  const filter = [
-    'No Filter', 'Clear','Clouds','Rain', 'Snow', 'Thunderstorms', 'Sleet', 'Smoke', 'Mist', 'Flurries'
-  ];
-
-  const handleFilterChange = (e) => {
-    setFilterCategory(e.target.value);
-  };
-
   useEffect(() => {
-    if (filterCategory === 'No Filter') {
-      setFilteredForecast(forecast);
-    } else {
-      const filteredData = forecast.filter((weatherData) => 
-        weatherData.weather.description.toLowerCase().includes(filterCategory.toLowerCase())
-      );
-      setFilteredForecast(filteredData);
-    }
-  }, [filterCategory, forecast]);
-
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`);
-        const data = await response.json();
-        if (data && data.data && data.data.length > 0) {
-          setWeatherData(data.data[0]);
-        } else {
-          console.error('No weather data found');
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching weather data:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchWeatherData();
+    if (city) localStorage.setItem("lastCity", city);
   }, [city]);
-
+  
   useEffect(() => {
-    const fetchForecast = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&days=16`);
-        const data = await response.json();
-        if (data && data.data) {
-          setForecast(data.data);
+      const fetchWeatherData = async () => {
+        try {
+          const response = await fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`);
+          const data = await response.json();
+          if (data?.data?.length > 0) {
+            const weather = data.data[0];
+            setWeatherData(weather);
+            setLat(weather.lat);
+            setLon(weather.lon);
+          }
+        } catch (error) {
+          console.error('Error fetching weather data:', error);
         }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching weather forecast:', error);
-        setLoading(false);
-      }
-    };
-    fetchForecast();
-  }, [city]);
-
-  const convertToLocalTime = (timestamp) => {
-    if (!timestamp) return '--:--';
-    const date = new Date(timestamp * 1000); // Convert timestamp (seconds) to milliseconds
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  };
-
-  if (loading || !weatherData) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <>
-      <div className="quickInfo">
-        <div className="infoBox">
-          <p className="headline">📍 {weatherData.city_name} </p>
-          <p className="extras">{weatherData.state_code}, {weatherData.country_code}</p>
-          <ul className="extras">
-            <li>Sunrise: {weatherData.sunrise} UTC</li>
-            <li>Sunset: {weatherData.sunset} UTC</li>
-          </ul>
-        </div>
-
-        <div className="infoBox">
-          <p className="headline"><strong>🌡️ Currently: {Math.round(weatherData.temp * 9 / 5 + 32)}°F</strong></p>
-          <ul className="extras">
-            <li>Feels like: {Math.round(weatherData.app_temp * 9 / 5 + 32)}°F</li>
-            <li>Wind Speed: {Math.round(weatherData.wind_spd * 2.237)} mph</li>
-            <li>Humidity: {weatherData.rh}%</li>
-          </ul>
-        </div>
-
-        <div className="infoBox">
-          <img src={`https://www.weatherbit.io/static/img/icons/${weatherData.weather.icon}.png`} alt={weatherData.weather.description} className="headline" />
-          <p className="headline">{weatherData.weather.description}</p>
-        </div>
-      </div>
-
-      <div className="contentDiv">
-        <div className="content">
-          <h2 className="title">Weather Information for {city}</h2>
-
-          <select className="location" onChange={(e) => setCity(e.target.value)} value={city}>
-            {cityList.map((cityName, index) => (
-              <option key={index} value={cityName}>{cityName}</option>
-            ))}
-          </select>
-
-          <select className="filter" onChange={handleFilterChange} value={filterCategory}>
-            {filter.map((category, index) => (
-              <option key={index} value={category}>{category}</option>
-            ))}
-          </select>
-
-          <div className="forecastContainer">
-            <div className="weatherHeader">
-              <div className="weatherData">Date</div>
-              <div className="weatherData">Location</div>
-              <div className="weatherData">Temperature</div>
-              <div className="weatherData">Weather</div>
-              <div className="weatherData">Humidity</div>
-              <div className="weatherData">Sunrise</div>
-              <div className="weatherData">Sunset</div>
-            </div>
-
-            {filteredForecast.map((day, index) => (
-              <div className="weatherRow" key={index}>
-                <div className="weatherData">{new Date(day.valid_date).toLocaleDateString()}</div>
-                <div className="weatherData">{city}</div>
-                <div className="weatherData">{Math.round(day.temp * 9 / 5 + 32)}°F</div>
-                <div className="weatherData">{day.weather.description}</div>
-                <div className="weatherData">{day.rh}%</div>
-                <div className="weatherData">{weatherData.sunrise} UTC </div>
-                <div className="weatherData">{weatherData.sunset} UTC </div> 
+      };
+  
+      const fetchForecast = async () => {
+        try {
+          const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&days=16`);
+          const data = await response.json();
+          const tenDayForecast = data.data.slice(1, 11); // skip today
+          setForecast(tenDayForecast);
+        } catch (error) {
+          console.error('Error fetching forecast:', error);
+        }
+      };
+  
+      fetchWeatherData();
+      fetchForecast();
+    }, [city]);
+  
+    if (!weatherData || forecast.length === 0) return <div>Loading forecast...</div>;
+  
+    return (
+      <>
+        <div className="headerContainer">
+          <div className="logoContainer">
+            <img src="logo.webp" className="logoImg" alt="logo" />
+          </div>
+  
+          <div className="search">
+            <p className="searchLabel"> 🔍 Enter a City:
+              <input
+                type="text"
+                className="searchBar"
+                placeholder="Enter city name..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button
+                className="searchButton"
+                onClick={() => {
+                  if (search.trim()) setCity(search.trim());
+                }}
+              >
+                Search!
+              </button>
+            </p>
+          </div>
+  
+          <div className="quickInfo">
+            <div className="infoBox">
+              <div className="iconStuff">
+                <img src={`https://www.weatherbit.io/static/img/icons/${weatherData.weather.icon}.png`} className="weatherIcon" />
+                <p className="extras">{weatherData.weather.description}</p>
               </div>
-            ))}
+              <div className="weatherInfo">
+                <p className="headline">📍{weatherData.city_name}, {weatherData.state_code}</p>
+                <p className="extras">• Feels like: {Math.round(weatherData.app_temp * 9 / 5 + 32)}°F</p>
+              </div>
+            </div>
+  
+            <div className = "infoBox">
+            <div className = "details">
+              <p>
+                🌡️ <strong>High / Low:</strong> {Math.round(forecast[0]?.max_temp * 9/5 + 32)}° / {Math.round(forecast[0]?.min_temp * 9/5 + 32)}° <br/>
+                💧 <strong>Humidity:</strong> {weatherData.rh}% <br/>
+                🌡️ <strong>Pressure:</strong> {weatherData.pres} in <br/>
+                👁️ <strong>Visibility:</strong> {weatherData.vis} mi
+              </p>
+            </div>
+      
+            <div className = "details">
+              <p>
+                🌬️ <strong>Wind:</strong> {weatherData.wind_cdir} {Math.round(weatherData.wind_spd * 2.237)} mph <br/>
+                💦 <strong>Dew Point:</strong> {Math.round(weatherData.dewpt)}° <br/>
+                ☀️ <strong>UV Index:</strong> {weatherData.uv} of 11 <br/>
+                🌕 <strong>Moon Phase:</strong> {forecast[0]?.moon_phase} <br/>
+              </p>
+            </div>
+            </div>
+  
+              <div className="buttonBox">
+                <button className="navButton" onClick={() => navigate('/10day', { state: { city } })}> 10 Day Forecast </button>
+                <button className="navButton"  onClick={() => navigate('/weather', { state: { city } })}> View Maps </button>
+              </div>
+          </div>
+        </div>
+        <div className="contentDiv">
+        <div className="content">
+          <h2 className="title">🌦️ Weather Visuals for {city}</h2>
+          <div className="visualsLayout">
+            <div className="radarSection">
+              <iframe
+                src={`https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=100%&height=450&zoom=7&level=surface&overlay=radar`}
+                width="100%"
+                height="450"
+                frameBorder="0"
+                title="Live Radar"
+                allowFullScreen 
+              />
+            </div>
+            <div className = "chartsColumn">
+              <div className = "chartRow">
+                <h4> 🌧️ Accumulation (mm) </h4>
+                <div className = "chartBox">
+                  <Line
+                    data={{
+                    labels: forecast.map(day => day.valid_date),
+                    datasets: [{
+                      label: 'Rain (mm)',
+                      data: forecast.map(day => day.precip),
+                      borderColor: 'skyblue',
+                      backgroundColor: 'rgba(135,206,250,0.2)',
+                      tension: 0.4,
+                      fill: true,
+                    }]
+                  }}
+                  options={{ responsive: true, plugins: { legend: { display: false } } }}
+                  />
+                </div>
+              </div>
+
+              <div className="chartRow">
+                <h3>🌡️ Temperature (°F) </h3>
+                <div className="chartBox">
+                  <Line
+                    data={{
+                    labels: forecast.map(day => day.valid_date),
+                    datasets: [{
+                      label: 'Temp (°F)',
+                      data: forecast.map(day => Math.round(day.temp * 9 / 5 + 32)),
+                      borderColor: 'tomato',
+                      backgroundColor: 'rgba(255, 99, 71, 0.2)',
+                      tension: 0.4,
+                      fill: true,
+                      }]
+                    }}
+                    options={{ responsive: true, plugins: { legend: { display: false } } }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
