@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css'
 import Home from '../Pages/Home';
-// import NewPost from '../Pages/NewPost';
+import NewPost from '../Pages/NewPost';
 // import EditPosts from '../Pages/EditPosts';
 
 
@@ -48,7 +48,7 @@ const App = () => {
         <Routes>
           <Route path = "/" element={<Home test={demo} />} />
           {/* <Route path = "/" element={<Home/>} /> */}
-          {/* <Route path = "/createPost" element = {<NewPost/>} />*/}
+          <Route path = "/createPost" element = {<NewPost/>} />
           {/* <Route path="/editPost/:id" element={<EditPosts />} /> */}
         </Routes>
       </BrowserRouter>
