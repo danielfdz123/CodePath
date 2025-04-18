@@ -41,7 +41,7 @@ const Home = (props) => {
             {
                 posts && posts.length > 0 ?
                 posts.map((post) => 
-                    <Card key = {post.id} id = {post.id} title = {post.title} author = {post.author} description = {post.description}/>
+                    <Card key = {post.id} id = {post.id} title = {post.title} author = {post.author} description = {post.description} likes = {post.likes} dislikes = {post.dislikes}/>
                   )
                    : <h2 className = 'noPosts'> No Posts Yet 😞 </h2>
             }
