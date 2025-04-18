@@ -30,7 +30,7 @@ const Card = (props) =>  {
   return (
       <div className = "Card">
         <div className = 'editButton'>
-          <Link to={'editPost/'+ props.id}> 
+          <Link to={'/editPost/'+ props.id}> 
             <button> Edit </button>
           </Link>
         </div>
@@ -38,8 +38,8 @@ const Card = (props) =>  {
           <h4 className = "author"> {"by " + props.author} </h4>
           <p className = "description">{props.description} </p>
           <div className = 'likeButtons'>
-            <button onClick = {updateLikes}> Likes 👍: {likeCount} </button>
-            <button onClick = {updateDislikes}> Dislikes 👎: {dislikeCount} </button>
+            <button onClick = {updateLikes}> 👍: {likeCount} </button>
+            <button onClick = {updateDislikes}> 👎: {dislikeCount} </button>
           </div>
       </div>
   );

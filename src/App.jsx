@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from '../Pages/Home';
 import NewPost from '../Pages/NewPost';
-// import EditPosts from '../Pages/EditPosts';
+import EditPosts from '../Pages/EditPosts';
 
 
 // TEST CASES TO SEE IF WE CAN GET SOMETHING RUNNING FOR NOW
@@ -49,7 +49,7 @@ const App = () => {
           {/* <Route path = "/" element={<Home test={demo} />} /> */}
           <Route path = "/" element={<Home/>} />
           <Route path = "/createPost" element = {<NewPost/>} />
-          {/* <Route path="/editPost/:id" element={<EditPosts />} /> */}
+          <Route path="/editPost/:id" element={<EditPosts />} />
         </Routes>
       </BrowserRouter>
     </div>

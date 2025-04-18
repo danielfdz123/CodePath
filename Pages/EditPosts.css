@@ -1,0 +1,52 @@
+.editPost {
+    width: 80em;
+    margin: 0 auto; 
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.514);
+    color: black;
+}
+
+.editPostTitle {
+    font-size: 3em;    
+    color: rgb(0, 0, 0);    
+    padding-top: 50px;
+}
+
+.formDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;        
+    width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+.goal, .postAuthor, .desc {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.submitPost, .deletePost {
+    padding: 12px;
+    background-color: #f3f3f3;
+    color: rgb(75, 75, 75);
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+  }
