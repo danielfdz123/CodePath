@@ -32,6 +32,13 @@
     cursor: pointer;
   }
 
+.filter {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
 .ReadPosts {
     /* border: 1px solid white; */
     max-height: 530px;

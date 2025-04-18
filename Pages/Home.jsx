@@ -7,6 +7,7 @@ import './Home.css';
 
 const Home = (props) => {
     const [posts, setPosts] = useState([]);
+    const [filter, setFilter] = useState('All');
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -38,12 +39,19 @@ const Home = (props) => {
             <div className = 'navButtons'>
                 <Link to = "/"> <button> View Posts 🔍 </button></Link>
                 <Link to = "/createPost"> <button> Create Post 🥅 </button></Link>
+                <select className = "filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
+                    <option value = "All"> No Filter </option>
+                    <option value = "Skill"> Skill Goals </option>
+                    <option value = "Creativity"> Creative Goals </option>
+                    <option value = "Clutch"> Clutch Goals </option>
+                </select>
             </div>
 
             <div className = "ReadPosts">
             {
                 posts && posts.length > 0 ?
-                posts.map((post) => 
+                posts.filter((post) => filter === 'All' || post.goalType === filter)
+                .map((post) => 
                     <Card key = {post.id} id = {post.id} title = {post.title} author = {post.author} description = {post.description} likes = {post.likes} dislikes = {post.dislikes} goalType = {post.goalType}/>
                   )
                    : <h2 className = 'noPosts'> No Posts Yet 😞 </h2>
