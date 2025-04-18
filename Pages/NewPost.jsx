@@ -8,6 +8,7 @@ const NewPost = () => {
         title: '',
         author: '',
         description: '',
+        goalType: ''
     });
 
     const handleChange = (e) => {
@@ -22,6 +23,7 @@ const NewPost = () => {
             title: post.title,
             author: post.author,
             description: post.description,
+            goalType: post.goalType
         })
         .select();
         window.location = '/';
@@ -60,6 +62,12 @@ const NewPost = () => {
                         onChange = {handleChange}
                         required    // REQUIRED TO FILL OUT WHEN MAKING A NEW POST
                     />
+                    <select className = 'type' name = "goalType" value = {post.goalType} onChange={handleChange} required>
+                        <option value = ""> Select Goal Type </option>
+                        <option value = "Skill"> Skill </option>
+                        <option value = "Creativity"> Creativity </option>
+                        <option value = "Clutch"> Clutch </option>
+                    </select>
                     <button className = 'submitPost' type= "submit"> Post! </button>
                 </form>
             </div>

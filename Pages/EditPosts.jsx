@@ -11,14 +11,15 @@ const EditPost = () => {
     const [post, setPost] = useState({
         title: '',
         author: '',
-        description: ''
+        description: '',
+        goalType: ''
     });
 
     useEffect(() => {
         const fetchPost = async () => {
             const { data } = await supabase
             .from('Posts')
-            .select('title, author, description')
+            .select('title, author, description, goalType')
             .eq('id', id)
             .single();
             if (data) {
@@ -41,7 +42,8 @@ const EditPost = () => {
         .update({
             title: post.title,
             author: post.author,
-            description: post.description
+            description: post.description,
+            goalType: post.goalType
         })
         .eq('id', id);
         navigate('/');
@@ -84,6 +86,12 @@ const EditPost = () => {
                         onChange = {handleChange}
                         placeholder = {post.description || 'Add Match & Date (Optional)' }
                     />
+                    <select className = 'type' name = "goalType" value = {post.goalType} onChange={handleChange} required>
+                        <option value = ""> Select Goal Type </option>
+                        <option value = "Skill"> Skill </option>
+                        <option value = "Creativity"> Creativity </option>
+                        <option value = "Clutch"> Clutch </option>
+                    </select>
                     <div className = 'buttonDiv'>
                         <button className = 'submitPost' type="submit"> Save Changes </button>
                         <button className = 'deletePost' onClick={deletePost}>Delete Post</button>

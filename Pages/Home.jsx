@@ -10,7 +10,10 @@ const Home = (props) => {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const { data, error } = await supabase.from('Posts').select();
+            const { data, error } = await supabase
+            .from('Posts')
+            .select()
+            .order('created_at', { ascending: false });
             if (error || !data || data.length === 0) 
             {
                 setPosts(props.test || []);
@@ -41,7 +44,7 @@ const Home = (props) => {
             {
                 posts && posts.length > 0 ?
                 posts.map((post) => 
-                    <Card key = {post.id} id = {post.id} title = {post.title} author = {post.author} description = {post.description} likes = {post.likes} dislikes = {post.dislikes}/>
+                    <Card key = {post.id} id = {post.id} title = {post.title} author = {post.author} description = {post.description} likes = {post.likes} dislikes = {post.dislikes} goalType = {post.goalType}/>
                   )
                    : <h2 className = 'noPosts'> No Posts Yet 😞 </h2>
             }

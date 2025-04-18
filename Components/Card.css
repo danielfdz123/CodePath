@@ -53,13 +53,33 @@
     cursor: pointer;
 }
 
-.editButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
   
-.editButton button {
+.left span {
+    padding: 6px 12px;
+    border-radius: 50px;
+}
+  
+.left .skill {
+    color: #ac34fc;
+    font-weight: 550;
+}
+  
+.left .creativity {
+    color: #3bc4d6;
+    font-weight: 550;
+}
+  
+.left .clutch {
+    color: #ffee00;
+    font-weight: 550;
+}
+
+.right button {
     padding: 3px 5px;
     font-size: 14px;
     background-color: #f1c40f00;

@@ -29,17 +29,24 @@ const Card = (props) =>  {
 
   return (
       <div className = "Card">
-        <div className = 'editButton'>
-          <Link to={'/editPost/'+ props.id}> 
-            <button> Edit </button>
-          </Link>
+        <div className = 'top'>
+          <div className = 'left'>
+          <span className = {props.goalType ? props.goalType.toLowerCase() : ''}> 
+            {props.goalType || "Type?"} 
+          </span>
+          </div>
+          <div className = 'right'>
+            <Link to = {'/editPost/'+ props.id}> 
+              <button> Edit </button>
+            </Link>
+          </div>
         </div>
           <h2 className = "title">{props.title} </h2>
           <h4 className = "author"> {"by " + props.author} </h4>
           <p className = "description">{props.description} </p>
           <div className = 'likeButtons'>
-            <button onClick = {updateLikes}> 👍: {likeCount} </button>
-            <button onClick = {updateDislikes}> 👎: {dislikeCount} </button>
+            <button onClick = {updateLikes}> Likes 👍: {likeCount} </button>
+            <button onClick = {updateDislikes}> Dislikes 👎: {dislikeCount} </button>
           </div>
       </div>
   );
