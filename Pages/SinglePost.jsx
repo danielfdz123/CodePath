@@ -30,13 +30,13 @@ const SinglePost = () => {
         .eq('post_id', id)
         .order('created_at', { ascending: true });
         setComments(commentsData);
+        setCommentCount(commentsData.length);
     };
     fetchPostAndComments();
   }, [id]);
 
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
-
     if (comment.trim() === '') return;
 
     const { data: commentData, error: commentError } = await supabase
@@ -56,15 +56,12 @@ const SinglePost = () => {
     }
 
     if (commentData && commentData.length > 0) {
-      await supabase
-        .from('Posts')
-        .update({ commentNum: post.commentNum + 1 })
-        .eq('id', id);
-        setComments([...comments, commentData[0]]);
-        setComment('');
-        setCommentCount(commentCount + 1); 
-      
-    } else {
+      setComments([...comments, commentData[0]]);
+      setComment(''); 
+      setCommentCount(commentCount + 1); 
+    } 
+    else 
+    {
       console.error('No comment data returned after insert.');
     }
   };
@@ -75,25 +72,26 @@ const SinglePost = () => {
   };
 
   const updateLikes = async () => {
+    const newLikeCount = likeCount + 1;
     await supabase
       .from('Posts')
-      .update({ likes: likeCount + 1 })
+      .update({ likes: newLikeCount })
       .eq('id', id);
-      setLikeCount(likeCount + 1);
+      setLikeCount(newLikeCount);
   };
 
   const updateDislikes = async () => {
+    const newDislikeCount = dislikeCount + 1;
     await supabase
       .from('Posts')
-      .update({ dislikes: dislikeCount + 1 })
+      .update({ dislikes: newDislikeCount })
       .eq('id', id);
-      setDislikeCount(dislikeCount + 1);
+      setDislikeCount(newDislikeCount);
   };
 
   if (!post) {
     return <div>Loading...</div>;
   }
-
 
   return (
     <div className = "singlePostContainer">
@@ -116,8 +114,6 @@ const SinglePost = () => {
           <button> 💬: {commentCount} </button>
         </div>
         <div className = "addComments">
-          
-
           <div className = "commentsSection">
             <h3> Comments: </h3>
             <ul>

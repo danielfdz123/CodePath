@@ -1,10 +1,10 @@
-# Web Development Final Project - *Name of App Here*
+# Web Development Final Project - *The Hangout*
 
-Submitted by: **Your Name Here**
+Submitted by: **Daniel Fernandez**
 
-This web app: **insert description**
+This web app: **A forum where any member of The Hangout Minecraft server can come along and simply chat away! Here, users can create posts, share ideas, ask for help, and do more all for the sake of laying back and hanging out while playing minecraft!**
 
-Time spent: **X** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
@@ -54,7 +54,7 @@ The following **optional** features are implemented:
   - On the post page of the new post, the referenced post is displayed and linked, creating a thread
 - [ ] Users can customize the interface
   - e.g., selecting the color scheme or showing the content and image of each post on the home feed
-- [ ] Users can add more characterics to their posts
+- [X] Users can add more characterics to their posts
   - Users can share and view web videos
   - Users can set flags such as "Question" or "Opinion" while creating a post
   - Users can filter posts by flags on the home feed
@@ -67,20 +67,13 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented user stories: https://www.youtube.com/watch?v=QEmbDhNJo3c
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
-
 ## Notes
 
-Describe any challenges encountered while building the app.
+Getting the comments part to work had no reason to be this complicated.. but thank god we figured it out. WE COOKED CHAT!!!
 
 ## License
 
