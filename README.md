@@ -6,6 +6,11 @@ This web app: **A forum where any member of The Hangout Minecraft server can com
 
 Time spent: **7** hours spent in total
 
+SEE THIS WEBSITE ANYWHERE THANKS TO NETLIFY!!
+--------------------------------------------------
+|  https://danielfdz123-finalproj.netlify.app/   |
+--------------------------------------------------
+
 ## Required Features
 
 The following **required** functionality is completed:
