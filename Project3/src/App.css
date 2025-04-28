@@ -1,0 +1,73 @@
+#root {
+  text-align: center;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+body {
+  margin: 0 auto;
+  padding-top: 5px;
+  background-image: url('../wallpaper.jpg'); 
+  background-position: bottom;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.header {
+  width: 50%;
+  margin: 6em auto 0; 
+  text-align: center;
+  position: relative;
+  outline: 5px solid black;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.514);
+  padding-bottom: 2em;
+}
+
+.next, .prev, .shuffle, .startOver {
+  background-color: black;
+  color: white;
+  margin: 5em auto 0;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.disable, button.submit.disable {
+  color: rgb(141, 141, 141);
+}
+
+.input {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+.correct {
+  border-color: green;
+  background-color: #71ff71;
+}
+
+.incorrect {
+  border-color: red;
+  background-color: #f16868; 
+}
+
+.default {
+  border-color: white;
+  background-color: white;
+}
+
+.submit {
+  font-size: 12px;
+  gap: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  padding-bottom: 3px ;
+  padding-top: 3px;
+}
