@@ -1,0 +1,65 @@
+.MatchdayBox {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 85%;
+}
+
+.MatchdayNum {
+    text-align: left;
+    text-indent: 20px;
+    text-decoration: underline;
+    font-style: italic;
+    padding-top: 70px;
+}
+
+.Matches {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.eventCard {
+    background-color: white;
+    color: black; 
+    margin: 20px auto;
+    padding: 20px;
+    width: 350px;
+    border-radius: 15px;    
+}
+
+.eventInfo {
+    font-size: 140%;
+}
+
+.flag {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid black;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.location {
+    font-size: 17px;
+    padding-bottom: 100px;
+}
+
+.info{
+    line-height: 30px;
+}
+
+.link {
+    font-size: 130%;
+    width: 45%;
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color:rgb(34, 209, 253);
+}
+
+.link:hover {
+    background-color:rgb(103, 156, 255);
+}
