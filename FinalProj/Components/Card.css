@@ -1,0 +1,77 @@
+.Card {
+    background-color: rgba(139, 139, 139, 0.781);
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 30%;
+    text-align: center;
+    position: relative;
+    height: 160px;
+}
+
+.title {
+    color:white;
+    font-size: 25px;
+    /* border: 1px solid white; */
+}
+
+.postStats{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.postStats button {
+    border-radius: 10px;
+    border: 1px solid transparent;
+    padding: 0.3em 0.7em;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    /* border: 1px solid white; */
+}
+  
+.left span {
+    padding: 6px 12px;
+    border-radius: 50px;
+}
+  
+.left .discussion {
+    color: #ac34fc;
+    font-weight: 550;
+}
+  
+.left .build-ideas {
+    color: #3bc4d6;
+    font-weight: 550;
+}
+  
+.left .q-a {
+    color: #ffee00;
+    font-weight: 550;
+}
+
+.right button {
+    padding: 3px 5px;
+    font-size: 14px;
+    background-color: #f1c40f00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-weight: 550;
+}
+.timestamp {
+    font-size: 1em;
+}

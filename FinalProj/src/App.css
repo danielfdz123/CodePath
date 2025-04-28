@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  max-height: px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  outline: 5px solid black;
+  max-height: 850px;
+}
+
+.card {
+  padding: 2em;
+}
+
+body {
+  margin: 0 auto;
+  padding-top: 5px;
+  background-image: url('../wallpaper.jpg'); 
+  background-position: bottom;
+  background-size: cover;
+  width: 100vw;
+  overflow: hidden;
+}
