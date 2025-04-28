@@ -1,0 +1,35 @@
+#root {
+  text-align: center;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+body {
+  margin: 0 auto;
+  padding-top: 10px;
+  background-image: url('../public/wallpaper.jpg'); 
+  background-position: bottom;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.header {
+  width: 50%;
+  margin: 10em auto 0; 
+  text-align: center;
+  position: relative;
+  outline: 5px solid black;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.514);
+  padding-bottom: 5em;
+}
+
+.next {
+  background-color: black;
+  color: white;
+  margin: 5em auto 0;
+  border-radius: 10px;
+  padding: 10px;
+}
