@@ -1,0 +1,90 @@
+.Card {
+    background-color: rgba(139, 139, 139, 0.781);
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 30%;
+    text-align: center;
+    position: relative;
+}
+
+.title {
+    color:white;
+    font-size: 24px;
+    margin-bottom: 0;
+    /* border: 1px solid white; */
+}
+
+.author {
+    color:white;
+    font-size: 15px;
+    margin-top: 0;
+    /* border: 1px solid white; */
+}
+
+.description {
+    color:white;  
+    text-align: justify;
+    text-justify: inter-word;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    /* border: 1px solid white; */
+}
+
+.likeButtons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.likeButtons button {
+    border-radius: 10px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+  
+.left span {
+    padding: 6px 12px;
+    border-radius: 50px;
+}
+  
+.left .skill {
+    color: #ac34fc;
+    font-weight: 550;
+}
+  
+.left .creativity {
+    color: #3bc4d6;
+    font-weight: 550;
+}
+  
+.left .clutch {
+    color: #ffee00;
+    font-weight: 550;
+}
+
+.right button {
+    padding: 3px 5px;
+    font-size: 14px;
+    background-color: #f1c40f00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-weight: 550;
+}
